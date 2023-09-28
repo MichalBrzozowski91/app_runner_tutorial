@@ -13,6 +13,11 @@ model = load(MODEL_PATH)
 app = Flask(__name__)
 
 
+@app.route("/")
+def health_check():
+    return "Welcome. Everything is fine!"
+
+
 # Prediction route
 @app.route("/predict", methods=["POST"])
 def predict() -> Response:
